@@ -5,5 +5,5 @@ The bot is implemented using the library [Discord.js](https://discord.js.org)
 
 ## Features
 ### 1. dirksay
-**Syntax**:`/dirksay input:your_input`
+**Syntax**:`/dirksay input:your_input` <br>
 Generates ASCII art inspired by cowsay but subsituting the cow for Dirk
