@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { EmbedBuilder } = require('discord.js');
-const bubbleConnection = "\n    \\\n     \\\n";
+const fs = require("fs");
+const {readFileSync} = require("fs");
+const {speechBubbleCreator} = require("../utils/speechBubbleUtil.js");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -14,31 +15,14 @@ module.exports = {
             option.setName('channel')
                 .setDescription('Channel to let dirk speak in')),
 	async execute(interaction) {
-        createDirkSay(interaction);
-		//return interaction.reply('Bot is Sinz approved <:sinz_approved:1042760945052692571>');
+        await createDirkSay(interaction);
 	},
 };
 
 async function createDirkSay(interaction) {
     const textToSay = interaction.options.getString('input')
-    const dirk = ""
-    let speechBubble = buildSpeechBubble(textToSay);
-    interaction.reply(speechBubble)
-}
+    let speechBubble = speechBubbleCreator(textToSay);
+    let asciiArt = readFileSync("dirksay.txt").toString();
 
-function buildSpeechBubble(text){
-    const bubblePadding = 2;
-
-    let returnString = " ";
-    for (let i = 0; i < text.length + bubblePadding; i++) {
-        returnString += "⎯"
-    }
-
-    returnString += `\n< ${text} >\n `
-
-    for (let i = 0; i < text.length + bubblePadding; i++) {
-        returnString += "⎯"
-    }
-    returnString = "\`\`\`\n" + returnString + bubbleConnection + "\`\`\`";
-    return returnString;
+    interaction.reply("\`\`\`\n" + speechBubble + asciiArt + "\`\`\`")
 }
