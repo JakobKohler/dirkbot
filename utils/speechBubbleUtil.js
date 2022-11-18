@@ -43,7 +43,8 @@ function oneLineBubble(line){
     return " " + bar + `\n< ${line} >\n ` + bar + bubbleConnection;
 }
 function multiLineBubble(lines){
-    let maxLen = lines.sort((a, b) => {return b.length - a.length})[0].length;
+    let linesClone = [...lines];
+    let maxLen = linesClone.sort((a, b) => {return b.length - a.length})[0].length;
 
     for (let i = 0; i < lines.length; i++) {
         lines[i] = lines[i].padEnd(maxLen, " ");
@@ -72,5 +73,4 @@ function createSpeechBubble(text){
     if(lineArray.length > 1) return multiLineBubble(lineArray)
     return oneLineBubble(lineArray[0]);
 }
-createSpeechBubble("looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong")
 module.exports.speechBubbleCreator = createSpeechBubble;
