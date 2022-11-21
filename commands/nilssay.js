@@ -5,24 +5,25 @@ const {speechBubbleCreator} = require("../utils/speechBubbleUtil.js");
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('dirksay')
-		.setDescription('Convey your message by putting it in the mouth of the one and only Dirk W Hoffmann')
+		.setName('nilssay')
+		.setDescription('Convey your message by putting it in the mouth of the one and only Nils')
         .addStringOption(option =>
             option.setName('input')
-                .setDescription('What should Dirk say?')
+                .setDescription('What should Nils say?')
                 .setRequired(true))
         .addChannelOption(option =>
             option.setName('channel')
-                .setDescription('Channel to let dirk speak in')),
+                .setDescription('Channel to let Nils speak in')),
 	async execute(interaction) {
         await createDirkSay(interaction);
 	},
 };
 
 async function createDirkSay(interaction) {
-    const textToSay = interaction.options.getString('input')
+    let textToSay = interaction.options.getString('input')
+    textToSay = textToSay + " I use Gentoo BTW.";
     let speechBubble = speechBubbleCreator(textToSay);
-    let asciiArt = readFileSync("asciiart/dirksay.txt").toString();
+    let asciiArt = readFileSync("asciiart/nilssay.txt").toString();
 
     interaction.reply("\`\`\`\n" + speechBubble + asciiArt + "\`\`\`")
 }
