@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
-const fs = require("fs");
-const {readFileSync} = require("fs");
-const {speechBubbleCreator} = require("../utils/speechBubbleUtil.js");
+const { generateSayText } = require("../utils/generateSayText");
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -10,19 +9,9 @@ module.exports = {
         .addStringOption(option =>
             option.setName('input')
                 .setDescription('What should Dirk say?')
-                .setRequired(true))
-        .addChannelOption(option =>
-            option.setName('channel')
-                .setDescription('Channel to let dirk speak in')),
+                .setRequired(true)),
 	async execute(interaction) {
-        await createDirkSay(interaction);
+        const textToSay = interaction.options.getString('input')
+        interaction.reply(generateSayText("dirksay", textToSay))
 	},
 };
-
-async function createDirkSay(interaction) {
-    const textToSay = interaction.options.getString('input')
-    let speechBubble = speechBubbleCreator(textToSay);
-    let asciiArt = readFileSync("asciiart/dirksay.txt").toString();
-
-    interaction.reply("\`\`\`\n" + speechBubble + asciiArt + "\`\`\`")
-}

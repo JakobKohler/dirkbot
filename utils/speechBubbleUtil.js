@@ -35,7 +35,14 @@ function createLineArray(text){
 
         lineArray[lineArrayIndex] += (" " + currentWord);
     }
-    return lineArray;
+
+    let returnArray = [];
+
+    for (let i = 0; i < lineArray.length; i++) {
+        let splitOnNewLine = lineArray[i].split(/\r?\n/);
+         returnArray.push(...splitOnNewLine);
+    }
+    return returnArray;
 }
 
 function oneLineBubble(line){
@@ -69,8 +76,8 @@ function createHorizontalBorder(len){
 
 function createSpeechBubble(text){
     let lineArray = createLineArray(text);
-
     if(lineArray.length > 1) return multiLineBubble(lineArray)
     return oneLineBubble(lineArray[0]);
 }
+
 module.exports.speechBubbleCreator = createSpeechBubble;
