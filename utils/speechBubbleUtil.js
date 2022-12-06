@@ -19,36 +19,37 @@ function createLineArray(text){
 
         wordSnippetArray.push(wordsArray[i]);
     }
-
+    console.log("Word Snippet Array: " + wordSnippetArray);
     lineArray[0] = wordSnippetArray[0];
 
     for (let i = 1; i < wordSnippetArray.length; i++) {
         let currentWord = wordSnippetArray[i];
-        charCounter += currentWord.length;
-
-        if(charCounter + lineArray[lineArrayIndex].length > LINE_LIMIT){
+        console.log("Current Word: " + currentWord + " LineArray " + lineArray[lineArrayIndex].length + ": " + lineArray[lineArrayIndex]);
+        if(currentWord.charAt(0) === "\n" || currentWord.length + lineArray[lineArrayIndex].length > LINE_LIMIT){
             lineArrayIndex++;
             lineArray[lineArrayIndex] = currentWord;
             charCounter = 0;
             continue;
         }
-
+        charCounter += currentWord.length;
         lineArray[lineArrayIndex] += (" " + currentWord);
     }
 
-    let returnArray = [];
-
-    for (let i = 0; i < lineArray.length; i++) {
-        let splitOnNewLine = lineArray[i].split(/\r?\n/);
-         returnArray.push(...splitOnNewLine);
-    }
-    return returnArray;
+    console.log("Line Array: " + lineArray);
+    return lineArray.map(line => {
+        if(line.charAt(0) === "\n"){
+            return line.substring(1);
+        }else{
+            return line;
+        }
+    });
 }
 
 function oneLineBubble(line){
     let bar = createHorizontalBorder(line.length);
     return " " + bar + `\n< ${line} >\n ` + bar + bubbleConnection;
 }
+
 function multiLineBubble(lines){
     let linesClone = [...lines];
     let maxLen = linesClone.sort((a, b) => {return b.length - a.length})[0].length;
@@ -76,8 +77,12 @@ function createHorizontalBorder(len){
 
 function createSpeechBubble(text){
     let lineArray = createLineArray(text);
+    console.log(lineArray);
+
     if(lineArray.length > 1) return multiLineBubble(lineArray)
     return oneLineBubble(lineArray[0]);
 }
+createSpeechBubble("Open Source ist beste" + " \nI use Gentoo BTW");
+
 
 module.exports.speechBubbleCreator = createSpeechBubble;

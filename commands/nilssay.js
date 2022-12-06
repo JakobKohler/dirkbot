@@ -10,7 +10,7 @@ module.exports = {
                 .setDescription('What should Nils say?')
                 .setRequired(true)),
 	async execute(interaction) {
-        const textToSay = interaction.options.getString('input') + "\nI use Gentoo BTW";
+        const textToSay = interaction.options.getString('input') + " \nI use Gentoo BTW";
         interaction.reply(generateSayText("nilssay", textToSay))
 	},
 };
