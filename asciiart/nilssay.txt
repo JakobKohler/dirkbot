@@ -1,20 +1,18 @@
-            ...........                 
-          ...:;::.......                
-        ..,;;;;:;'........              
-        .;clooddxoc;,'.....             
-       .';clooddxxddol;....             
-       ..';coollllodxdl'..              
-       .....:l:,',:ccll;,:'             
-       .'...:llc::loddxooo'             
-       .,'.,lolllodxxxddl,              
-       .',',:lolodxxxxd:.               
-        .''',:loodxxxxd,                
-         ..';:loddddddd:                
-           .,:lloodddxxd;.              
-            .,:loddxxxxxdl:,.           
-          ...,:loddxxxxxxxxkd,..        
-     ..',;:;',:loodxxxxkkkkkd;........  
-  .,::::::clcclooodxdxxxkxxkxdlcc:ldxo:'
-.,:::::::::cllloooddoodxxxkkxxxxxddxxddd
-,;;;;;::;:::::::cllloodddxkkxxkkxxxxxxxl
-...'''''''',,,,,;::ccloooodddxxxxdxxdxkd
+         -/oyddmdhs+:.             
+     -odNMMMMMMMMNNmhy+-`          
+   -yNMMMMMMMMMMMNNNmmdhy+-        
+ `omMMMMMMMMMMMMNmdmmmmddhhy/`     
+ omMMMMMMMMMMMNhhyyyohmdddhhhdo`   
+.ydMMMMMMMMMMdhs++so/smdddhhhhdm+` 
+ oyhdmNMMMMMMMNdyooydmddddhhhhyhNd.
+  :oyhhdNNMMMMMMMNNNmmdddhhhhhyymMh
+    .:+sydNMMMMMNNNmmmdddhhhhhhmMmy
+       /mMMMMMMNNNmmmdddhhhhhmMNhs:
+    `oNMMMMMMMNNNmmmddddhhdmMNhs+` 
+  `sNMMMMMMMMNNNmmmdddddmNMmhs/.
+ /NMMMMMMMMNNNNmmmdddmNMNdso:`
++MMMMMMMNNNNNmmmmdmNMNdso/-
+yMMNNNNNNNmmmmmNNMmhs+/-`
+/hMMNNNNNNNNMNdhs++/-`
+`/ohdmmddhys+++/:.`
+  `-//////:--.
