@@ -19,12 +19,10 @@ function createLineArray(text){
 
         wordSnippetArray.push(wordsArray[i]);
     }
-    console.log("Word Snippet Array: " + wordSnippetArray);
     lineArray[0] = wordSnippetArray[0];
 
     for (let i = 1; i < wordSnippetArray.length; i++) {
         let currentWord = wordSnippetArray[i];
-        console.log("Current Word: " + currentWord + " LineArray " + lineArray[lineArrayIndex].length + ": " + lineArray[lineArrayIndex]);
         if(currentWord.charAt(0) === "\n" || currentWord.length + lineArray[lineArrayIndex].length > LINE_LIMIT){
             lineArrayIndex++;
             lineArray[lineArrayIndex] = currentWord;
@@ -35,7 +33,6 @@ function createLineArray(text){
         lineArray[lineArrayIndex] += (" " + currentWord);
     }
 
-    console.log("Line Array: " + lineArray);
     return lineArray.map(line => {
         if(line.charAt(0) === "\n"){
             return line.substring(1);
@@ -82,7 +79,5 @@ function createSpeechBubble(text){
     if(lineArray.length > 1) return multiLineBubble(lineArray)
     return oneLineBubble(lineArray[0]);
 }
-createSpeechBubble("Open Source ist beste" + " \nI use Gentoo BTW");
-
 
 module.exports.speechBubbleCreator = createSpeechBubble;
