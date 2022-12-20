@@ -7,8 +7,8 @@ module.exports = {
 		.setName('kœri')
 		.setDescription('Dirk is going to recommend you an excellent choice of kœri. Give it a try!'),
 	async execute(interaction) {
-		i = Math.floor(Math.random() * 7) + 1;
-		j = Math.floor(Math.random() * (outputs.length));
+		let i = Math.floor(Math.random() * 7) + 1;
+		let j = Math.floor(Math.random() * (outputs.length));
 		const shuffledKoeri = koeri.sort((a, b) => 0.5 - Math.random());
 		const first = shuffledKoeri.slice(0, i);
 		first.sort();
