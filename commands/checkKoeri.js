@@ -4,7 +4,7 @@ const { checkKoeri } = require("../utils/checkKoeriAvailibility");
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('checkKoeri')
+		.setName('checkoeri')
 		.setDescription('Check if Koeriwerk is open'),
 	async execute(interaction) {
         if(!checkKoeri()){
