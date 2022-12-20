@@ -4,7 +4,7 @@ const outputs = ['Today, I can recommend ', 'The best kœri is ', 'How about ', 
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('kœri')
+		.setName('koeri')
 		.setDescription('Dirk is going to recommend you an excellent choice of kœri. Give it a try!'),
 	async execute(interaction) {
 		let i = Math.floor(Math.random() * 7) + 1;
