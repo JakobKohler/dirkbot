@@ -9,6 +9,8 @@ module.exports = {
             option.setName('int')
                 .setDescription('How many "bloats" were bloated')),
 	async execute(interaction) {
+        const interactionUser = await interaction.guild.members.fetch(interaction.user.id);
+		const nickname = interactionUser.nickname;
         let bloatNumber = interaction.options.getInteger('int');
         let jsonObj = JSON.parse(fs.readFileSync("databank/bloatcount.json"));
         if(bloatNumber === null){
@@ -17,6 +19,6 @@ module.exports = {
             jsonObj["bloatCount"] += bloatNumber;
         }
         fs.writeFileSync("databank/bloatcount.json", JSON.stringify(jsonObj));
-        return interaction.reply('This year, we have said "bloat" ' + jsonObj["bloatCount"] + ' times.');
+        return interaction.reply(nickname + ' bloated again. Together we have said "bloat" ' + jsonObj["bloatCount"] + ' times.');
 	},
 };
