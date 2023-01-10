@@ -4,15 +4,12 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
 async function getMenu(){
-    const pageHTML = await axios.get(MENU_URL)
-    .then(data => {
-        const dom = new JSDOM(data.data);
-        let allRows = dom.window.document.querySelector("tbody").querySelectorAll("tr.mensatype_rows");
-
-        //The code is documenttation enough
-        let koeriRow = [...allRows].filter(row => row.querySelector('td.mensatype').textContent == '[Kœri]werk')[0];
-        return (koeriRow.querySelector('td.mensadata table tbody tr').childNodes.length == 2);
+    let koeri = false;
+    await axios.get(MENU_URL).then(data => {
+        koeri =  data.data.includes("Kalbsbratwurst")
     });
+
+    return koeri;
 }
 
 module.exports.checkKoeri = getMenu;
