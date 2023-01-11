@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
+const {dirkQuote} = require('./utils/bibleQuotes.js');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]});
 
@@ -35,11 +36,9 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 client.on('messageCreate', async (message) =>{
-    console.log('Message Sent');
     if(message.author.bot) return;
-
-    if(message.content.toLowerCase().includes("test")){
-        message.reply("testies");
+    if(message.content.toLowerCase().includes("dirk")){
+        message.reply(dirkQuote());
     }
 });
 
