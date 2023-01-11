@@ -19,13 +19,11 @@ module.exports = {
 
 		//random generation of the koeri combination and output message
 		let i = Math.floor(Math.random() * 6);
-		console.log(i);
 		let j = Math.floor(Math.random() * (outputs.length));
 		const shuffledKoeri = koeri.sort((a, b) => 0.5 - Math.random());
 		const first = shuffledKoeri.slice(0, i + 1);
 		first.sort();
 		let output = first;
-		console.log(output);
 		for (let k = 0; k < output.length; k++) {
 			output[k] = koeriIDs[output[k]];
 			}
@@ -35,7 +33,7 @@ module.exports = {
 		}
 
 		if (first.length == koeri.length){
-			return interaction.reply(nametext + ', ' + outputs[j] + '<:infinity1:1062509306668392458><:infinity2:1062509309797351456><:infinity3:1062509311844171786><:infinity4:1062509314729844796> kœri!');
+			return interaction.reply(nametext + ', ' + outputs[j] + '<:infinity1:1062613571751661628><:infinity2:1062613573928505364><:infinity3:1062613576956792862><:infinity4:1062613580215754782> kœri!');
 		} else {
 			return interaction.reply(nametext + ', ' + outputs[j] + output + ' kœri!');
 		}
