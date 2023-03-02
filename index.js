@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, Events, GatewayIntentBits, TextChannel } = require('discord.js');
 const { token } = require('./config.json');
 const {dirkQuote} = require('./utils/bibleQuotes.js');
 
@@ -40,9 +40,20 @@ client.on('messageCreate', async (message) =>{
     if(message.content.toLowerCase().includes("dirk")){
         message.reply(dirkQuote());
     }
+
 	if(message.content.toLowerCase().includes("rolf")||message.content.toLowerCase().includes("betz")){
         message.reply("Diese Information finden Sie im FORUM!\n (https://ilias.h-ka.de/ilias.php?ref_id=726140&cmd=showThreads&cmdClass=ilrepositorygui&cmdNode=xm&baseClass=ilrepositorygui)");
     }
+
+	if(message.content.toLowerCase().includes("rolle")||message.content.toLowerCase().includes("wolle")){
+		message.reply({
+			files: [{
+    	attachment: 'gods work/AROUSINGANDEDUCATIONAL2.png',
+    	name: 'AROUSINGANDEDUCATIONAL2.png',
+    	description: 'NOT SAFE FOR WORK'
+			}]
+		});
+	}
 });
 
 client.login(token);
