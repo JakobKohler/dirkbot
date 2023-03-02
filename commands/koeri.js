@@ -16,6 +16,7 @@ module.exports = {
 		//read servername of the user who sent the command
 		const interactionUser = await interaction.guild.members.fetch(interaction.user.id);
 		const nickname = interactionUser.nickname;
+		const username = interactionUser.user.username;
 
 		//random generation of the koeri combination and output message
 		let i = Math.floor(Math.random() * 6);
@@ -28,7 +29,10 @@ module.exports = {
 			output[k] = koeriIDs[output[k]];
 			}
 
-		if(nametext === null){
+		//nickname only used, when normal Discord Username overwritten
+		if(nametext === null && nickname === null){
+			nametext = username;
+		} else if(nametext === null && nickname != null) {
 			nametext = nickname;
 		}
 
