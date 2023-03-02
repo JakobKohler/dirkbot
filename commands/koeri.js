@@ -3,6 +3,13 @@ const koeri = [0,1,2,3,4,5];
 const outputs = ['today I can recommend you ', 'the best kœri is ', 'how about ', 'why not try the very special ', 'you shall choose '];
 const koeriIDs = ['<:koeri1:1062484320108957801>', '<:koeri2:1062484325276336218>', '<:koeri3:1062484329806176276>', '<:koeri4:1062484331882348585>', '<:koeri5:1062484336013738034>', '<:koeri6:1062484339402756127>'];
 
+const randomArray = [0,1,1,2,2,2,2,3,3,3,3,4,4,5]
+
+for (let i = 0; i < 100; i++) {
+	let cock = Math.floor(Math.random() * randomArray.length);
+	console.log(randomArray[cock])
+}
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('koeri')
@@ -19,10 +26,10 @@ module.exports = {
 		const username = interactionUser.user.username;
 
 		//random generation of the koeri combination and output message
-		let i = Math.floor(Math.random() * 6);
+		let i = Math.floor(Math.random() * randomArray.length);
 		let j = Math.floor(Math.random() * (outputs.length));
 		const shuffledKoeri = koeri.sort((a, b) => 0.5 - Math.random());
-		const first = shuffledKoeri.slice(0, i + 1);
+		const first = shuffledKoeri.slice(0, randomArray[i] + 1);
 		first.sort();
 		let output = first;
 		for (let k = 0; k < output.length; k++) {
