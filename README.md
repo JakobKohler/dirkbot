@@ -29,6 +29,6 @@ Counts how many times we have said "bloat" by adding either 1 or the specified n
 Can be used to test if the bot is working correctly.
 
 ### 7. reactions
-Special functions, which let dirk react to different substrings with different messages.
+Some hidden functions, which let dirk react to different substrings within a message with different replies.
 
 Special thanks to [@Mofi202](https://github.com/Mofi202) and [@nils-matthaei](https://github.com/nils-matthaei) for their invaluable contribution to the dirkbot. Your dedication and expertise have greatly enhanced the quality and success of the project. 
