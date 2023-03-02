@@ -5,11 +5,6 @@ const koeriIDs = ['<:koeri1:1062484320108957801>', '<:koeri2:1062484325276336218
 
 const randomArray = [0,1,1,2,2,2,2,3,3,3,3,4,4,5]
 
-for (let i = 0; i < 100; i++) {
-	let cock = Math.floor(Math.random() * randomArray.length);
-	console.log(randomArray[cock])
-}
-
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('koeri')
