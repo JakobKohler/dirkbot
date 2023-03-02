@@ -54,6 +54,16 @@ client.on('messageCreate', async (message) =>{
 			}]
 		});
 	}
+
+	if(message.content.toLowerCase().includes("assani")||message.content.toLowerCase().includes("mathe")){
+		message.reply({
+			files: [{
+    	attachment: 'gods work/sicher.png',
+    	name: 'sicher.png',
+    	description: 'SICHER'
+			}]
+		});
+	}
 });
 
 client.login(token);
