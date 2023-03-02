@@ -7,3 +7,5 @@ The bot is implemented using the library [Discord.js](https://discord.js.org)
 ### 1. dirksay
 **Syntax**:`/dirksay input:your_input` <br>
 Generates ASCII art inspired by cowsay but subsituting the cow for Dirk
+
+Special thanks to [@Mofi202](https://github.com/Mofi202) and [@nils-matthaei](https://github.com/nils-matthaei) for their invaluable contribution to the dirkbot. Your dedication and expertise have greatly enhanced the quality and success of the project. 
