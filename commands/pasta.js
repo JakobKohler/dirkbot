@@ -12,7 +12,7 @@ module.exports = {
     
     let pasta = pastaDB[Math.floor(Math.random()*pastaDB.length)];
     let funny = funnyDB[Math.floor(Math.random()*funnyDB.length)];
-    let message = funny.replace("[pasta]",pasta).replace("  "," " );
+    let message = funny.replace("[pasta]",pasta.replace(" ",""));
     
 		return interaction.reply(message);
 	},
