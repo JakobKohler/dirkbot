@@ -28,7 +28,11 @@ Counts how many times we have said "bloat" by adding either 1 or the specified n
 **Syntax**: `/test` <br>
 Can be used to test if the bot is working correctly.
 
-### 7. reactions
+### 7. pasta commits
+**Syntax**: `/pasta` <br>
+Generates a random pasta related commit message for this project.
+
+### 8. reactions
 Some hidden functions, which let dirk react to different substrings within a message with different replies.
 ##
 
