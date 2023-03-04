@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits, TextChannel } = require('discord.js');
 const { useTestBot } = require('./tokenSelection.json');
-const { token, tokenTest } = require('./config.json');
+const config = require('./config.json');
 const {dirkQuote} = require('./utils/bibleQuotes.js');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]});
@@ -72,4 +72,4 @@ client.on('messageCreate', async (message) =>{
 	}
 });
 
-client.login(useTestBot ? tokenTest : token);
+client.login(useTestBot ? config.tokenTest : config.token);
