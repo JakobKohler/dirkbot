@@ -27,13 +27,26 @@ function getReply(message) {
   }
 
   if(message.content.toLowerCase().includes("assani")||message.content.toLowerCase().includes("mathe")||message.content.toLowerCase().includes("sicher")){
-	  message.reply({
-		  files: [{
-   	  attachment: 'gods work/sicher.png',
-   	  name: 'sicher.png',
-     	description: 'SICHER'
-  		}]
-	  });
+    let sicher = Math.floor(Math.random()*100);
+    console.log(sicher);
+    if(sicher <= 98){
+      message.reply({
+		      files: [{
+   	      attachment: 'gods work/sicher.png',
+   	      name: 'sicher.png',
+     	    description: 'SICHER'
+  		  }]
+	    });
+    }
+    else{
+      message.reply({
+		      files: [{
+   	      attachment: 'gods work/youngsicher.png',
+   	      name: 'sicher.png',
+     	    description: 'SICHER'
+  		  }]
+	    });
+    } 
   }
 
   if(message.content.toLowerCase().includes("rick")||message.content.toLowerCase().includes("nie")){
