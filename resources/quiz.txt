@@ -1,0 +1,15 @@
+Ähnelt die Funktionsweise der Röhrentriode mehr dem Bipolartransistor oder mehr dem Feldeffekttransistor? Begründen Sie Ihre Antwort.
+Welcher Transistoranschluss entspricht der Kathode bzw.der Anode und welcher dem Gitteranschluss?
+Wie hoch ist die Ausgangsspannung Vout,wenn die Gate-Anschlüsse beider Transistoren auf Masse liegen (Vin = 0)? Wieverhält sich die Schaltung, wenn an die Gate-Anschlüsse die Spannung VDD angelegt wird?
+Zu welchen Zeitpunkten fließt Strom durch den Transistor?
+Welcher Zusammenhang besteht zwischen beiden Größen?
+Der Intel-Core-2-Duo-Prozessor (Yorkfield) aus dem Jahre 2008 wurde in einem 45Nanometer-Prozess gefertigt und besitzt eine Chip-Fläche von 214 mm2.Wie groß wäre die Fläche, wenn er mit demselben 10-µm-Prozessgefertigt worden wäre, der für die Produktion des ersten Mikroprozessors –dem Intel 4004 –zum Einsatzkam?
+Hohe Integrationsdichten bringen nicht nur Vorteile mit sich. Wiekönnte sich die stete Reduktion der Kanallänge Ihrer Meinung nach auf die Hitzeentwicklung auswirken? Nehmen Sie vereinfachend an, dass die Wärmeentwicklung eines einzelnen Transistors konstant, d. h. unabhängig vonder konkreten Kanallänge bleibt.
+Handelt es sich bei den zu Grunde liegenden Zahlensystemen um Additionssysteme oder Stellenwertsysteme?
+Wie viele Fehlerenthält die folgende Konvertierung der Dezimalzahl 65,015625 in das Oktalsystem?
+In der Vorzeichenbitdarstellung definiert das erste Bit, ob eine Zahl positivoder negativ ist. Gilt diese Eigenschaft auch im Einer-bzw.Zweierkomplement?
+Schätzungenzufolge besteht das Universum aus einer Tredezillion Atomen (1078). Welche Bitbreite ist mindestens notwendig, um diese Zahl im Rechner zu speichern?
+Welcher Zahlenstrahl repräsentiert ein Festkommaformat und welcher ein Gleitkommaformat? Definieren Sie für beide Darstellungen ein Zahlenformat, das exakt die mit einem senkrechten Strich markierten Zahlen als Wertebereich besitzt.
+Welche Art der Normalisierung wird hier verwendet?
+Was ändert sich, wenn die Charakteristik durch die Addition der Konstanten 128 (Format 1) bzw. 256 (Format 2) berechnet wird?
+Wie Sie vielleicht bereits bemerkthaben, weist der Glixon-Code eine große Ähnlichkeit mit dem Gray-Code auf. In welchen Anwendungsfällen ist er besser geeignet, in welchen schlechter?
