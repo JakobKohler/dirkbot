@@ -56,7 +56,7 @@ client.on('messageCreate', async (message) =>{
 	}
 	if(message.content.toLowerCase().includes("pasta")){
         var pastaDB = fs.readFileSync(`resources/PastaDB.txt`).toString().split("\n");
-		message.reply(pastaDB[Math.floor(Math.random()*pastaDB.length)])
+		    message.reply(pastaDB[Math.floor(Math.random()*pastaDB.length)])
     }
 	if(message.content.toLowerCase().includes("assani")||message.content.toLowerCase().includes("mathe")){
 		message.reply({
