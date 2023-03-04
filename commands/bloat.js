@@ -10,7 +10,11 @@ module.exports = {
                 .setDescription('How many "bloats" were bloated')),
 	async execute(interaction) {
         const interactionUser = await interaction.guild.members.fetch(interaction.user.id);
-		const nickname = interactionUser.nickname;
+		let nickname = interactionUser.nickname;
+        let username = interactionUser.user.username;
+        if(nickname === null){
+			nickname = username;
+        }
         let bloatNumber = interaction.options.getInteger('int');
         let jsonObj = JSON.parse(fs.readFileSync("databank/bloatcount.json"));
         if(bloatNumber === null){

@@ -58,7 +58,7 @@ client.on('messageCreate', async (message) =>{
         var pastaDB = fs.readFileSync(`resources/PastaDB.txt`).toString().split("\n");
 		    message.reply(pastaDB[Math.floor(Math.random()*pastaDB.length)])
     }
-	if(message.content.toLowerCase().includes("assani")||message.content.toLowerCase().includes("mathe")){
+	if(message.content.toLowerCase().includes("assani")||message.content.toLowerCase().includes("mathe")||message.content.toLowerCase().includes("sicher")){
 		message.reply({
 			files: [{
     	attachment: 'gods work/sicher.png',

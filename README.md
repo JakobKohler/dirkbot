@@ -10,7 +10,7 @@ Generates ASCII art inspired by cowsay but subsituting the cow for Dirk. The com
 
 ### 2. koeri
 **Syntax**: `/koeri optional_input:your_input` <br>
-Randomly generates a combination of 6 differnt curry spices to enjoy on your kœriwurst. There is the option to enter a name, to receive a recommendation for someone else.
+Randomly generates a combination of 6 differnt kœri spices to enjoy on your kœriwurst. There is the option to enter a name, to receive a recommendation for someone else.
 
 ### 3. checkoeri
 **Syntax**: `/checkoeri` <br>
@@ -30,5 +30,6 @@ Can be used to test if the bot is working correctly.
 
 ### 7. reactions
 Some hidden functions, which let dirk react to different substrings within a message with different replies.
+##
 
 Special thanks to [@Mofi202](https://github.com/Mofi202) and [@nils-matthaei](https://github.com/nils-matthaei) for their invaluable contribution to the dirkbot. Your dedication and expertise have greatly enhanced the quality and success of the project. 
