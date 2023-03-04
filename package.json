@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node deploy_commands && node index.js"
+    "start": "node deploy_commands.js && node index.js"
   },
   "author": "",
   "license": "ISC",
