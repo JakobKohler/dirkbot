@@ -36,5 +36,15 @@ function getReply(message) {
 	  });
   }
 
-}
+  if(message.content.toLowerCase().includes("rick")||message.content.toLowerCase().includes("nie")){
+    message.reply({
+      files: [{
+      attachment: 'gods work/rickastley.gif',
+      name: 'rickastley.gif',
+      description: 'YOU WERE RICKROLLED'
+      }]
+    });
+  }
+
+}  
 module.exports.getReply = getReply;
