@@ -12,8 +12,8 @@ module.exports = {
     
     let pasta = pastaDB[Math.floor(Math.random()*pastaDB.length)];
     let funny = funnyDB[Math.floor(Math.random()*funnyDB.length)];
-    let message = funny.replace("[pasta]");
+    let message = funny.replace("[pasta]", pasta);
     
-		return interaction.reply(message);
+	return interaction.reply(message);
 	},
 };

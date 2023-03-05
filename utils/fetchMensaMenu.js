@@ -1,20 +1,24 @@
-//const MENU_URL = "https://www.sw-ka.de/de/hochschulgastronomie/speiseplan/mensa_moltke/";
 const axios = require("axios");
 
-async function getKoeriStatus(){
+async function getMenu(date){
     let resultsObject = {};
-    await axios.get("http://localhost:3001/koeristatus")
+    let fetchURL = "http://localhost:3001/";
+    if(date){
+        fetchURL += `?date=${date}`;
+    }
+
+    await axios.get(fetchURL)
     .then(data => {
         resultsObject = {
             error: false,
-            koeri: data.data.koeriOpen
+            menuData: data.data
         }
     })
     .catch(err => {
         if(err.response){
             resultsObject = {
                 error: true,
-                koeri: undefined
+                menuData: undefined
             }
         }
     });
@@ -22,4 +26,4 @@ async function getKoeriStatus(){
     return resultsObject;
 }
 
-module.exports.checkKoeri = getKoeriStatus;
+module.exports.getMenu = getMenu;
