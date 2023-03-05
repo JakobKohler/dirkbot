@@ -59,5 +59,9 @@ function getReply(message) {
     });
   }
 
+  if(message.content.length >= 142){
+    message.reply("HALT STOP! Jetzt reicht es auch mal! Fass dich mal bitte kürzer... *sigh*");
+  }
+
 }  
 module.exports.getReply = getReply;
