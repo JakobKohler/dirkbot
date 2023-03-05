@@ -1,5 +1,6 @@
 const {dirkQuote} = require('./bibleQuotes.js');
 const { Client, Collection, Events, GatewayIntentBits} = require('discord.js');
+const fs = require('fs');
 
 function getReply(message) {
   
