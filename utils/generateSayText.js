@@ -3,7 +3,7 @@ const {readFileSync} = require("fs");
 
 
 function generateSayText(asciiArtFile, text){
-    let asciiArt = readFileSync(`resources/asciiart/${asciiArtFile}.txt`).toString();
+    let asciiArt = readFileSync(`asciiart/${asciiArtFile}.txt`).toString();
 
     return ("\`\`\`\n" + speechBubbleCreator(text) + asciiArt + "\`\`\`");
 }
