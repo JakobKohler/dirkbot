@@ -1,6 +1,8 @@
 const {dirkQuote} = require('./bibleQuotes.js');
 const { Client, Collection, Events, GatewayIntentBits} = require('discord.js');
-const fs = require('fs');
+const fs = require('node:fs');
+const { generateSayText } = require("./generateSayText");
+var quiz = false;
 
 function getReply(message) {
   
@@ -59,6 +61,21 @@ function getReply(message) {
       }]
     });
   }
+
+  if(quiz) {
+		if(message.content.toLowerCase().includes("forum")||(message.content.toLowerCase().includes("gegeben")&&message.content.toLowerCase().includes("gesucht"))||message.content.toLowerCase().includes("spickzettel")) {
+			message.reply("richtig");
+		} else {
+			message.reply("falsch");
+		}
+		quiz = false;
+	} else if(message.content.toLowerCase().includes("-quiz")) {
+		var questions = fs.readFileSync('./gods work/quiz.txt').toString().split("\r");
+    let number = Math.floor(Math.random() * questions.length);
+		let question = questions[number];
+		message.reply(generateSayText("rolle", question));
+		quiz = true;
+	}
 
   if(message.content.length >= 142){
     message.reply("HALT STOP! Jetzt reicht es auch mal! Fass dich mal bitte kürzer... *sigh*");
