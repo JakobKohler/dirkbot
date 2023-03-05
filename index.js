@@ -7,6 +7,7 @@ const { useTestBot } = require('./tokenSelection.json');
 const config = require('./config.json');
 const {dirkQuote} = require('./utils/bibleQuotes.js');
 const {getReply} = require('./utils/getReply.js')
+const { generateSayText } = require("utils/generateSayText");
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]});
 
