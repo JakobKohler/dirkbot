@@ -3,7 +3,7 @@ const axios = require("axios");
 
 async function getMenu(){
     let resultsObject = {};
-    await axios.get("http://localhost:5000/koeristatus")
+    await axios.get("http://localhost:3001/koeristatus")
     .then(data => {
         resultsObject = {
             error: false,
