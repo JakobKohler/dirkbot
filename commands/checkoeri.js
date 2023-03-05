@@ -8,8 +8,11 @@ module.exports = {
 		.setDescription('Check if [kœri]werk is open'),
 	async execute(inter) {
         let interaction = inter;
-        let bool = await checkKoeri();
-        if(bool){
+        let checkResults = await checkKoeri();
+
+        if(checkResults.error){
+            interaction.reply("There was an error regarding the communication with the Mensa API Server");
+        } else if(checkResults.koeri) {
             interaction.reply("[kœri]werk is open :) - the greatest happiness I've ever had");
         }else{
             interaction.reply("[kœri]werk is closed :( - my will to live is fainting");
