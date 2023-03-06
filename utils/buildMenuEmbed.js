@@ -13,7 +13,7 @@ function createMenuEmbed(menuJSON){
         fields: [spacerField],
         color: 0xb089ff,
         thumbnail: {
-            url: "https://www.blitzschutz-mueller.de/images/referenzen/mensa-moltke/mensa-moltke-01.jpg"
+            url: "https://cdn.discordapp.com/attachments/1039892483439607959/1082260400948658196/image.png"
         }
     }
 
