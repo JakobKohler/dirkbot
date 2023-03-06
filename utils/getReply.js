@@ -52,7 +52,7 @@ function getReply(message) {
     } 
   }
 
-  if(message.content.toLowerCase().includes("rick")||message.content.toLowerCase().includes("nie")){
+  if(message.content.toLowerCase().includes("rick")||message.content.toLowerCase().includes(" nie ")){
     message.reply({
       files: [{
       attachment: 'gods work/rickastley.gif',
