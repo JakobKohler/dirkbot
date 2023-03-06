@@ -5,7 +5,6 @@ const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const { useTestBot } = require('./tokenSelection.json');
 const config = require('./config.json');
-const {dirkQuote} = require('./utils/bibleQuotes.js');
 const {getReply} = require('./utils/getReply.js')
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]});

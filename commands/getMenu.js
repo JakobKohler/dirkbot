@@ -7,7 +7,7 @@ const { createMenuEmbed } = require('../utils/buildMenuEmbed');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('mensa')
-		.setDescription('Check if [kœri]werk is open')
+		.setDescription('Get the menu of Mensa Moltke on a given day')
         .addStringOption(option =>
             option.setName('date')
                 .setDescription('Enter date like: dd.mm.yyyy or dd.mm')
@@ -27,7 +27,7 @@ module.exports = {
 
         if(!fetchResults.menuData || fetchResults.menuData.length == 0){
             const dayOfRequest = date ? new Date(date) : new Date();
-            return interaction.reply(`Mensa Moltke seems to be closed on ${dayOfRequest.toDateString()}`);
+            return interaction.reply(`Mensa Moltke seems to be closed on ${dayOfRequest.toISOString()}`);
         }
         const menuEmbed = createMenuEmbed(fetchResults.menuData);
         interaction.reply({ embeds: [menuEmbed] })
