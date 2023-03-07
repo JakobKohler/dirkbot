@@ -26,7 +26,7 @@ module.exports = {
     
         if(!bloatNumber) {
             const count = await readBloatCount(client);
-            return interaction.reply(`Together we have said "bloat ${count} times.`)
+            return interaction.reply(`Together we have said bloat ${count} times.`)
         } else {
             const updateSuccess = await updateBloatCount(client, bloatNumber);
             if(updateSuccess){
