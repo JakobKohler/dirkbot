@@ -27,7 +27,7 @@ module.exports = {
 
         if(!fetchResults.menuData || fetchResults.menuData.length == 0){
             const dayOfRequest = date ? new Date(date) : new Date();
-            return interaction.reply(`Mensa Moltke seems to be closed on ${dayOfRequest.toISOString()}`);
+            return interaction.reply(`Mensa Moltke seems to be closed on ${printDate(dayOfRequest)}`);
         }
         const menuEmbed = createMenuEmbed(fetchResults.menuData);
         interaction.reply({ embeds: [menuEmbed] })
@@ -51,4 +51,8 @@ function parseDate(givenDate){
 
     console.log(`${year}-${month}-${day}`);
     return `${year}-${("0" + month).slice(-2)}-${("0" + day).slice(-2)}`;
+}
+
+function printDate(date){
+    return date.toISOString().split("T")[0].split("-").reverse().join(".");
 }
