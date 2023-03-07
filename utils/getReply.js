@@ -31,7 +31,6 @@ function getReply(message) {
 
   if(message.content.toLowerCase().includes("assani")||message.content.toLowerCase().includes("mathe")||message.content.toLowerCase().includes("sicher")){
     let sicher = Math.floor(Math.random()*100);
-    console.log(sicher);
     if(sicher <= 98){
       message.reply({
 		      files: [{
