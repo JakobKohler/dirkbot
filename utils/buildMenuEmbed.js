@@ -5,7 +5,6 @@ const spacerField = {
 }
 
 function createMenuEmbed(menuJSON){
-    console.log(menuJSON);
     const planDate = getDayFromObject(menuJSON.date);
     let menuEmbedObject = {
         title: `${menuJSON.name}`,

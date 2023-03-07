@@ -5,7 +5,9 @@ const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const { useTestBot } = require('./tokenSelection.json');
 const config = require('./config.json');
-const {getReply} = require('./utils/getReply.js')
+const {getReply} = require('./utils/getReply.js');
+const {sendMenu} = require('./utils/sendMenu.js');
+const cron = require('node-cron');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]});
 
@@ -42,5 +44,9 @@ client.on('messageCreate', async (message) =>{
 	if(message.author.bot) return;
 	getReply(message);
 });
+
+cron.schedule('30 7 * * 1-5', async function() {
+	await sendMenu(client);
+  });
 
 client.login(useTestBot ? config.tokenTest : config.token);
