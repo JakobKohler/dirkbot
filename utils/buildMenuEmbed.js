@@ -54,7 +54,7 @@ function createMenuEmbed(menuJSON){
 }
 
 function getDayFromObject(date){
-    return `${("0" + date.day).slice(-2)}.${("0" + date.month).slice(-2)}.${date.year}`;
+    return `${("0" + date.day).slice(-2)}.${("0" + date.month + 1).slice(-2)}.${date.year}`;
 }
 
 module.exports.createMenuEmbed = createMenuEmbed;
