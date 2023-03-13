@@ -47,6 +47,6 @@ Can be used to test if the bot is working correctly.
 ### 📨 11. reactions
 Some hidden functions, which let dirk react to different substrings within a message with different replies. If you want to try something funny, type in -quiz to start a little exam, but keep in mind the examinor - only a few specific answers are correct.
 ##
-
 A note from the dirkbot developer-team: Dirk is open towards all kind of people and just wants you to enjoy the user experience. Together with dirk we stand against any racist, transphobic and other views that invalidate people. 🏳️‍🌈🏳️‍⚧️
+
 Special thanks to [@Mofi202](https://github.com/Mofi202) and [@nils-matthaei](https://github.com/nils-matthaei) for their invaluable contribution to the dirkbot. Your dedication and expertise have greatly enhanced the quality and success of the project. 
