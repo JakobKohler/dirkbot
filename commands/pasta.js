@@ -10,10 +10,13 @@ module.exports = {
     var pastaDB = fs.readFileSync(`resources/PastaDB.txt`).toString().split("\n");
     var funnyDB = fs.readFileSync('resources/commits.txt').toString().split("\n");
     
-    let pasta = pastaDB[Math.floor(Math.random()*pastaDB.length)];
-    let funny = funnyDB[Math.floor(Math.random()*funnyDB.length)];
-    let message = funny.replace("[pasta]", pasta);
+	let funny = funnyDB[Math.floor(Math.random()*funnyDB.length)];
+
+	while(funny.includes("[pasta]")){
+		let pasta = pastaDB[Math.floor(Math.random()*pastaDB.length)];
+		funny = funny.replace("[pasta]", pasta);
+	}
     
-	return interaction.reply(message);
+	return interaction.reply(funny);
 	},
 };
