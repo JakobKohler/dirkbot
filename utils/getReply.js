@@ -76,7 +76,7 @@ function getReply(message) {
 		quiz = true;
 	}
 
-  if(message.content.length >= 142){
+  if(message.content.length >= 242){
     message.reply("HALT STOP! Jetzt reicht es auch mal! Fass dich mal bitte kürzer... *sigh*");
   }
 
