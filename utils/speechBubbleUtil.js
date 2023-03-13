@@ -74,8 +74,7 @@ function createHorizontalBorder(len){
 
 function createSpeechBubble(text){
     let lineArray = createLineArray(text);
-    console.log(lineArray);
-
+    
     if(lineArray.length > 1) return multiLineBubble(lineArray)
     return oneLineBubble(lineArray[0]);
 }
