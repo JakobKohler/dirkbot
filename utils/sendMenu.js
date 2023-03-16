@@ -8,7 +8,7 @@ async function sendMenu(client) {
     
     let fetchResults = await getMenu();
     if(!fetchResults.menuData || fetchResults.menuData.length == 0){
-        return channel.send(`Mensa Moltke seems to be closed today.}`);
+        return channel.send(`Mensa Moltke seems to be closed today.`);
     }
 
     const menuEmbed = createMenuEmbed(fetchResults.menuData);
