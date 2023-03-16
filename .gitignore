@@ -5,3 +5,5 @@ gods work/
 node_modules/
 package-lock.json
 .idea
+rust-utils/target
+rust-utils/Cargo.lock 
