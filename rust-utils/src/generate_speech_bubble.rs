@@ -21,7 +21,7 @@ pub fn speech_bubble(text: &str) -> String {
     for (i, line) in lines.into_iter().enumerate() {
         let diff = width_lines - UnicodeWidthStr::width(line);
         if num_lines == 1 {
-            out = out + "< " + line + " >\n";
+            out = out + "〈 " + line + " 〉\n";
         } else if i == 0 {
             out = out + "/ " + line + &(" ".repeat(diff)) + " \\\n";
         } else if i == num_lines - 1 {
