@@ -15,7 +15,7 @@ pub fn speech_bubble(text: &str) -> String {
 
     //Top Border
     let mut out = String::from(" ");
-    out = out + &("_".repeat(width_lines + 2)) + " \n";
+    out = out + &("—".repeat(width_lines + 2)) + " \n";
 
     //Text
     for (i, line) in lines.into_iter().enumerate() {
@@ -30,7 +30,7 @@ pub fn speech_bubble(text: &str) -> String {
             out = out + "| " + line + &(" ".repeat(diff)) + " |\n";
         }
     }
-    out = out + " " + &("-".repeat(width_lines + 2));
+    out = out + " " + &("—".repeat(width_lines + 2));
     out = out + SPEECH_LINE;
 
     return out;
