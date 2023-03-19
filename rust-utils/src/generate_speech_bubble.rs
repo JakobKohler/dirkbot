@@ -5,7 +5,7 @@ use unicode_width::UnicodeWidthStr;
 #[wasm_bindgen]
 pub fn speech_bubble(text: &str) -> String {
     const LINE_LIMIT: usize = 50;
-    const SPEECH_LINE: &str = "\n   \\ \n    \\ \n";
+    const SPEECH_LINE: &str = "\n   \\ \n    \\ \n     \\ \n";
 
     let wrapped_text = fill(text,LINE_LIMIT);
     let lines: Vec<&str> = wrapped_text.lines().collect();
