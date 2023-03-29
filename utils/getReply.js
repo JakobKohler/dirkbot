@@ -50,7 +50,7 @@ function getReply(message) {
 	    });
     } 
   }
-  if (Math.floor(Math.random() * 2) {	
+  if (Math.floor(Math.random() * 2)) {	
   if(message.content.toLowerCase().includes("richtig")||message.content.toLowerCase().includes("korrekt")||message.content.toLowerCase().includes("Martin")){
      message.reply({
 	     files: [{
