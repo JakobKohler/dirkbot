@@ -50,7 +50,17 @@ function getReply(message) {
 	    });
     } 
   }
-
+  if (Math.floor(Math.random() * 2) {	
+  if(message.content.toLowerCase().includes("richtig")||message.content.toLowerCase().includes("korrekt")||message.content.toLowerCase().includes("Martin")){
+     message.reply({
+	     files: [{
+		     attachment: 'gods work/richtig.png',
+		     name: 'richtig.png',
+		     description: 'RICHTIG'
+	     }]
+     });
+  }
+  }
   if(message.content.toLowerCase().includes("rick")||message.content.toLowerCase().includes(" nie ")){
     message.reply({
       files: [{
