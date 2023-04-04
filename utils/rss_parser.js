@@ -1,8 +1,9 @@
 let Parser = require('rss-parser');
 let parser = new Parser();
 
-async function fetchAndParseFeed() {
-  let feed = await parser.parseURL('https://www.iwi.hs-karlsruhe.de/iwii/REST/rssfeed/newsbulletinboard/INFB');
+async function fetchAndParseFeed(feedURL) {
+  let feed = await parser.parseURL(feedURL);
+  console.log(feed.title);
   console.log(feed);
 /*
   feed.items.forEach(item => {
@@ -13,6 +14,8 @@ async function fetchAndParseFeed() {
 }
 
 // Call the function whenever you want to fetch and parse the feed
+/*
 fetchAndParseFeed();
+ */
 
 

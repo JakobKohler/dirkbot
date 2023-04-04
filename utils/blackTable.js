@@ -1,9 +1,10 @@
-const { jsonfier } = require ('./rssToJson.js')
+const { fetchAndParseFeed } = require ('./rss_parser.js')
+
 
 const RSS_URL = 'https://www.iwi.hs-karlsruhe.de/iwii/REST/rssfeed/newsbulletinboard/INFB';
 
 function getFeed(feedURL) {
-    var data = jsonfier(feedURL);
+    var data = fetchAndParseFeed(feedURL);
 
     console.log(data);
 
