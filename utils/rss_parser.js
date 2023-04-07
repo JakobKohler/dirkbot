@@ -21,6 +21,9 @@ async function fetchAndParseFeed(feedURL) {
 
   //Format the Items
   feed.items.forEach(item => {
+
+
+
     for (let itemKey in item) {
       item[itemKey] = format(item[itemKey]);
     }
