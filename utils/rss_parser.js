@@ -21,9 +21,9 @@ async function fetchAndParseFeed(feedURL) {
 
   //Format the Items
   feed.items.forEach(item => {
-
-
-
+    //delete item.contentSnippet;                           //Für weniger bloat, aber lieber drin lassen
+    //delete item.guid;                                     //falls in der Zukunft mal verwendet
+    //delete item.enclosure;
     for (let itemKey in item) {
       item[itemKey] = format(item[itemKey]);
     }

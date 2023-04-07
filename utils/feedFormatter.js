@@ -4,6 +4,7 @@ function format(text) {
 
     //Delete anything else unwanted
 
+
     //Delete any remaining <[]> HTML Elements
     text = text.replace(/<[^>]+>/g, "");
     return text;

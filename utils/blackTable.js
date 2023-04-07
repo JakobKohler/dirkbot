@@ -38,20 +38,24 @@ async function fetchData(date) {
         } else {
             //If there is oldData, filter the new Data to exclude all oldData
             oldData = JSON.parse(buffer.toString());
-            let oldFeed = feed;                 //Debugging
+            //let oldFeed = feed;                                               //Debugging
             feed.feedData.items.filter(item => oldData.items.some(obj => obj.title === item.title && obj.isoDate === item.isoDate))
-
-            console.log(oldFeed.feedData);          //Debugging
-            console.log("\n\n" + feed.feedData);    //Debugging
+        /*
+            console.log(oldFeed.feedData);                                      //Debugging
+            console.log("\n\n\n\n\n\n" + feed.feedData + " feed.feedData");     //Debugging
+        */
         }
+
     })
 
 
 /*
     feed.feedData.items.forEach(item => {
-        console.log("\n"+item.isoDate);
+        console.log(item.content + "\n");
     })
 */
+
+
 
     return feed;
 }
