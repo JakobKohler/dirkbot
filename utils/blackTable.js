@@ -36,11 +36,10 @@ async function fetchData(date) {
 
     let oldData = {};
     //alte Data aus neuen Daten entfernen
-    fs.readFile('../resources/blackTableData.txt', (err, data) => {
+    fs.readFile('./resources/blackTableData.txt', (err, data) => {
         if (err) {                                                              //If called, file probably empty. That's ok, we take that into consideration
-            console.log("An Error has occured reading blackTableData.txt");
+            console.log("An Error has occured reading blackTableData.txt", err);
         } else {
-            console.log("err: " + err);
             oldData = JSON.parse(data);
             feed.feedData.items.filter(item => oldData.items.some(obj => obj.title === item.title && obj.isoDate === item.isoDate));
         }
@@ -50,9 +49,10 @@ async function fetchData(date) {
 }
 
 function saveOldData(displayedData) {
+    console.log("SAVING");
     let oldData = {};
     //Get oldData from blackTableData.txt
-    fs.readFile('../resources/blackTableData.txt', (err, buffer) => {
+    fs.readFile('./resources/blackTableData.txt', (err, buffer) => {
         if (err) {                                                              //If called, file probably empty. That's ok, we take that into consideration
             console.log(err);
             oldData = displayedData.feedData;                                   //Works!
@@ -66,7 +66,7 @@ function saveOldData(displayedData) {
         //Save Data back to blackTableData.txt
         fs.writeFile('../resources/blackTableData.txt', data, err => {
             if (err) {
-                console.error('Error writing data to file: blackTableData.txt', err)
+                //console.error('Error writing data to file: blackTableData.txt', err)
 
                 //Error Message in Discord_errors senden.
             }
@@ -74,13 +74,16 @@ function saveOldData(displayedData) {
 
     });
 
-
+    console.log("DONE SAVING");
 }
 
-
+/*
 async function getBlackTable() {
     console.log("FETCHING");
     await fetchData(0).then(data => {
+        data.feedData.items.forEach(item => {
+            //console.log(item.title);
+        });
         saveOldData(data);
     });
     return "SUCCESSFUL";
@@ -88,7 +91,7 @@ async function getBlackTable() {
 
 getBlackTable();
 
-
+*/
 
 
 //although not shown, it is possible to get the subItems from item, like item.title or item.isoDate!
