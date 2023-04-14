@@ -14,7 +14,8 @@ module.exports = {
             let start = []
             let end = [];
 
-            for (let i=0;i<toCheck.length;i++) {                                    //Iteriert über alle Diagram Elemente, überprüft sie auf ihre Größe und teilt sie, falls nötig auf.
+            //Iteriert über alle Diagram Elemente, überprüft sie auf ihre Größe und teilt sie, falls nötig auf.
+            for (let i=0;i<toCheck.length;i++) {
                 const length = toCheck[i].length;
                 let reply = "";
                 start = [];
