@@ -49,7 +49,7 @@ async function fetchData(date) {
 }
 
 function saveOldData(displayedData) {
-    console.log("SAVING");
+    //console.log("SAVING");
     let oldData = {};
     //Get oldData from blackTableData.txt
     fs.readFile('./resources/blackTableData.txt', (err, buffer) => {
@@ -74,25 +74,8 @@ function saveOldData(displayedData) {
 
     });
 
-    console.log("DONE SAVING");
+    //console.log("DONE SAVING");
 }
-
-/*
-async function getBlackTable() {
-    console.log("FETCHING");
-    await fetchData(0).then(data => {
-        data.feedData.items.forEach(item => {
-            //console.log(item.title);
-        });
-        saveOldData(data);
-    });
-    return "SUCCESSFUL";
-}
-
-getBlackTable();
-
-*/
-
 
 //although not shown, it is possible to get the subItems from item, like item.title or item.isoDate!
 module.exports = {fetchData, saveOldData}
