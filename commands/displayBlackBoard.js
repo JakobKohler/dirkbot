@@ -57,20 +57,21 @@ function splitRepliesIt(diagram) {
         start = [];
         end = [];
 
-        for (let j=0;j<(length/2)-1;j++) {
+        for (let j=0;j<(length/2);j++) {
             reply += toCheck[i][j];
             start[j] = toCheck[i][j];
         }
-        for (let j=length/2, k=0;j<length;j++,k++) {
+        for (let j=(length/2), k=0;j<length;j++,k++) {
             reply += toCheck[i][j];
             end[k] = toCheck[i][j];
         }
-
+        console.log(reply.length);
         if (reply.length<2000) {
             replies.push(reply);
         }
         else {
-            toCheck.push(start,end);
+            toCheck.splice(i,1,start,end);
+            i-=1;
         }
     }
     return replies;
@@ -97,6 +98,7 @@ function splitRepliesRec(diagram, replies) {
         end[i] = diagram[i];
         reply += diagram[i];
     }
+    console.log(reply.length);
     if (reply.length<2000) {
         replies.push(reply);
     } else {
