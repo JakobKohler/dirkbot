@@ -12,8 +12,8 @@ module.exports = {
             let diagram = createBlackBoardDiagram(data);
             let replies = [];
 
-            replies = splitRepliesRec(diagram, replies);
-            //replies = splitRepliesIt(diagram);
+            //replies = splitRepliesRec(diagram, replies);
+            replies = splitRepliesIt(diagram);
 
             interaction.reply(`Sending Black Board for: Today!`)
             for (let i=0;i<replies.length;i++) {
@@ -65,7 +65,6 @@ function splitRepliesIt(diagram) {
             reply += toCheck[i][j];
             end[k] = toCheck[i][j];
         }
-        console.log(reply.length);
         if (reply.length<2000) {
             replies.push(reply);
         }
@@ -78,7 +77,7 @@ function splitRepliesIt(diagram) {
 }
 
 /**
- * Iteriert rekursiv über alle Diagram Elemente, überprüft sie auf ihre Größe und teilt sie, falls nötig, auf.
+ * Rekursivt über alle Diagram Elemente, überprüft sie auf ihre Größe und teilt sie, falls nötig, auf.
  * Rekursiv
  * @param diagram
  * @param replies
@@ -98,7 +97,6 @@ function splitRepliesRec(diagram, replies) {
         end[i] = diagram[i];
         reply += diagram[i];
     }
-    console.log(reply.length);
     if (reply.length<2000) {
         replies.push(reply);
     } else {
