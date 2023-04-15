@@ -1,4 +1,3 @@
-const config = require('../config.json');
 const { SlashCommandBuilder} = require('discord.js');
 const {fetchData, saveOldData} = require('../utils/blackTable.js');
 
