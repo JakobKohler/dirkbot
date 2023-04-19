@@ -38,7 +38,7 @@ async function fetchData(date) {
     //alte Data aus neuen Daten entfernen
     fs.readFile('./resources/blackTableData.txt', (err, data) => {
         if (err) {                                                              //If called, file probably empty. That's ok, we take that into consideration
-            console.log("An Error has occured reading blackTableData.txt", err);
+            console.log("An Error has occurred reading blackTableData.txt", err);
         } else {
             oldData = JSON.parse(data);
             feed.feedData.items.filter(item => oldData.items.some(obj => obj.title === item.title && obj.isoDate === item.isoDate));

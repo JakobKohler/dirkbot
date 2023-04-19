@@ -82,6 +82,7 @@ function splitRepliesIt(diagram) {
  * @param replies
  */
 //Verfahren könnte ziemlich langsam werden, bei großen Ausgaben, wenn verfügbar sollte überarbeitet werden
+/*
 function splitRepliesRec(diagram, replies) {
     const length = diagram.length;
     let reply = "";
@@ -105,3 +106,4 @@ function splitRepliesRec(diagram, replies) {
     return replies;
 
 }
+*/
