@@ -1,5 +1,13 @@
 const { SlashCommandBuilder} = require('discord.js');
 const {fetchData, saveOldData} = require('../utils/blackTable.js');
+const fs = require("node:fs");
+const path = require('path');
+
+const spacerField = {
+    name: '\u200b',
+    value: '',
+    inline: false,
+}
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,72 +16,95 @@ module.exports = {
     async execute(interaction) {
         fetchData(0).then(data => {
             const channel = interaction.channel;
-            let diagram = createBlackBoardDiagram(data);
-            let replies = [];
+            if (data.error===false) {
+                const replies = splitRepliesIt(createBlackBoardDiagram(data.feedData));
+                interaction.reply(`Sending Black Board for: Today!`)
+                for (let i = 0; i < replies.length; i++) {
+                    channel.send(replies[i]);
+                }
 
-            //replies = splitRepliesRec(diagram, replies);
-            replies = splitRepliesIt(diagram);
-
-            interaction.reply(`Sending Black Board for: Today!`)
-            for (let i=0;i<replies.length;i++) {
-                channel.send(replies[i]);
+                saveOldData(data);
+            } else {
+                interaction.reply(`An Error has occurred: ${data.error}`);
             }
 
-            saveOldData(data);
         })
     },
 };
 
 function createBlackBoardDiagram(data) {
-    let diagram = [];
-    let i = 0;
+    let menuEmbedObject = {
+        title: `${data.title}`,
+        description: ``,
+        fields: [spacerField],
+        color: 0xb089ff,
+        //thumbnail:
+    }
 
-    data.feedData.items.forEach(item => {
-        diagram[i] += `\> \*\*${item.title}\*\*\n\n`
-        diagram[i] += `\> ${item.content}\n`
+    let i = 0;
+    data.items.forEach(item => {
+        let totalField = {
+            inline: true,
+            name: `⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ ${item.title} ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯`,
+            value: []
+        };
+        totalField.value.push(item.content);
+        totalField.value.push(item.pubDate);
+        totalField.value.push(item.author);
+        totalField.value.push('');
+
+        menuEmbedObject.fields.push(totalField);
+        /*
         diagram[i] += `\> \*Posted on: ${item.pubDate}\*\n`
         diagram[i] += `\> \*${item.author}\*\n`
-        diagram[i] += `\n\n\n`
+        diagram[i] += `\> \n \> \n`
+        */
+
         i++;
     });
-    return diagram;
+    return menuEmbedObject;
 }
 
 /**Iteriert über alle Diagram Elemente, überprüft sie auf ihre Größe und teilt sie, falls nötig, auf.
  * Iterativ
- * @param diagram
+ * @param menuEmbedObject
  * @returns {*[]}
  */
-function splitRepliesIt(diagram) {
-    let toCheck = [diagram];
+function splitRepliesIt(menuEmbedObject) {
+    let toCheck = [menuEmbedObject.fields];
     let replies = [];
-    let start = []
-    let end = [];
+    let firstPart = []
+    let secondPart = [];
 
     for (let i=0;i<toCheck.length;i++) {
-        const length = toCheck[i].length;
-        let reply = "";
-        start = [];
-        end = [];
+        length = toCheck[i].length;
 
-        for (let j=0;j<(length/2);j++) {
-            reply += toCheck[i][j];
-            start[j] = toCheck[i][j];
-        }
-        for (let j=(length/2), k=0;j<length;j++,k++) {
-            reply += toCheck[i][j];
-            end[k] = toCheck[i][j];
-        }
-        if (reply.length<2000) {
+        reply = toCheck[i].slice(0,length/2);
+        firstPart = reply;
+        reply = reply.concat(toCheck[i].slice(length/2,length));
+        secondPart = reply;
+
+        if (2000 < ((JSON.stringify(reply).length) - (10+4+reply.length*(5+6+10)))) {       //Ungefähre Berechnung der Länge
             replies.push(reply);
         }
         else {
-            toCheck.splice(i,1,start,end);
+            toCheck[i].splice(i,1,firstPart,secondPart);
             i-=1;
         }
     }
+    //diagram.fields
     return replies;
 }
+
+fs.readFile('../resources/blackTableData.txt', (err, data) => {
+    if (err) {                                                              //If called, file probably empty. That's ok, we take that into consideration
+        console.log("Error reading blackTableData.txt, probably Empty.");
+    } else {
+        oldData = splitRepliesIt(createBlackBoardDiagram(JSON.parse(data)));
+    }
+
+})
+
 
 /**
  * Rekursivt über alle Diagram Elemente, überprüft sie auf ihre Größe und teilt sie, falls nötig, auf.

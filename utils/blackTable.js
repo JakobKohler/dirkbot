@@ -1,6 +1,7 @@
 const  { fetchAndParseFeed }  = require('./rss_parser.js')
 const { format } = require('./feedFormatter.js')
 const fs = require('node:fs')
+const path = require('path');
 
 
 async function fetchData(date) {
@@ -31,30 +32,33 @@ async function fetchData(date) {
             }
             return feed;
         });
-
+    console.log(feed.error);
     feed.feedData = format(feed.feedData);                                      //Format the feedData
 
     let oldData = {};
     //alte Data aus neuen Daten entfernen
-    fs.readFile('./resources/blackTableData.txt', (err, data) => {
+    fs.readFile('../resources/blackTableData.txt', (err, data) => {
         if (err) {                                                              //If called, file probably empty. That's ok, we take that into consideration
-            console.log("An Error has occurred reading blackTableData.txt", err);
+            console.log(`Error reading blackTableData.txt, ${err.code}`);
         } else {
             oldData = JSON.parse(data);
             feed.feedData.items.filter(item => oldData.items.some(obj => obj.title === item.title && obj.isoDate === item.isoDate));
         }
 
-    })                                                                          //Works GUDD!
+    })                                                                          //Works GUUD!
     return feed;
 }
 
 function saveOldData(displayedData) {
     //console.log("SAVING");
     let oldData = {};
+    console.log(__dirname);
+    const filePath = path.join(__dirname,'..','resources','blackTableData.txt');
+    console.log(filePath);
     //Get oldData from blackTableData.txt
-    fs.readFile('./resources/blackTableData.txt', (err, buffer) => {
+    fs.readFile(filePath, (err, buffer) => {
         if (err) {                                                              //If called, file probably empty. That's ok, we take that into consideration
-            console.log(err);
+            console.log("Error reading blackTableData.txt, probably empty.");
             oldData = displayedData.feedData;                                   //Works!
         } else {
             oldData = JSON.parse(buffer);
@@ -62,13 +66,11 @@ function saveOldData(displayedData) {
         }
 
         let data = JSON.stringify(oldData);
-
         //Save Data back to blackTableData.txt
-        fs.writeFile('../resources/blackTableData.txt', data, err => {
-            if (err) {
-                //console.error('Error writing data to file: blackTableData.txt', err)
-
-                //Error Message in Discord_errors senden.
+        fs.writeFile(filePath, data, err => {
+            if(err) {
+                console.log("Error writing File.")
+                console.log(err);
             }
         })
 
@@ -76,6 +78,8 @@ function saveOldData(displayedData) {
 
     //console.log("DONE SAVING");
 }
+
+fetchData(0).then(data => {saveOldData(data)});
 
 //although not shown, it is possible to get the subItems from item, like item.title or item.isoDate!
 module.exports = {fetchData, saveOldData}
