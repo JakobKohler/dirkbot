@@ -76,7 +76,8 @@ function getReply(message) {
 		quiz = true;
 	}
 
-  if(message.content.length >= 242){
+  //making dirk upset, if a message is longer than the Vorwort of Grundlagen der Technischen Informatik 
+  if(message.content.length >= 2549){
     message.reply("HALT STOP! Jetzt reicht es auch mal! Fass dich mal bitte kürzer... *sigh*");
   }
 
