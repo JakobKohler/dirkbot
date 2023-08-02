@@ -12,6 +12,34 @@ async function sendMenu(client) {
     }
 
     const menuEmbed = createMenuEmbed(fetchResults.menuData);
-    channel.send({ embeds: [menuEmbed] });
+    if(validDate()){
+        channel.send({ embeds: [menuEmbed] });
+    }
 }
+
+function validDate() {
+    //THIS FUNCTION WORKS UNTIL FEBRUARY 2024
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    
+    //Semesterferien 23
+    if(year = 2023 && (month < 9 || (month === 9 && day < 25))){
+    }
+    //Weihnachten 23-24
+    if(year = 2023 && month === 12 && day >= 22){
+        return false;
+    }
+    if(year = 2024 && month === 1 && day <= 7){
+        return false;
+    }
+    //Semesterferien 24
+    if(year = 2024 && (month > 2 || (month === 2 && day > 9))){
+        return false;
+    }
+    return true;
+
+}
+
 module.exports.sendMenu = sendMenu;
