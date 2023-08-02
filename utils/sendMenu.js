@@ -26,6 +26,7 @@ function validDate() {
     
     //Semesterferien 23
     if(year = 2023 && (month < 9 || (month === 9 && day < 25))){
+        return false;
     }
     //Weihnachten 23-24
     if(year = 2023 && month === 12 && day >= 22){
