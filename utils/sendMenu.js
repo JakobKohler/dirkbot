@@ -19,28 +19,28 @@ async function sendMenu(client) {
 
 function validDate() {
     //THIS FUNCTION WORKS UNTIL FEBRUARY 2024
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    const day = date.getDate();
+    const currentDate = new Date();
+    const semesterStart = new Date('2023-09-25');
+    const semesterEnd = new Date('2024-02-09');
+    const christmasVacationStart = new Date('2023-12-22');
+    const christmasVacationEnd = new Date('2024-01-07');
     
     //Semesterferien 23
-    if(year = 2023 && (month < 9 || (month === 9 && day < 25))){
-        return false;
+    if(currentDate < semesterStart){
+      return false;
     }
+  
     //Weihnachten 23-24
-    if(year = 2023 && month === 12 && day >= 22){
-        return false;
+    if(christmasVacationStart <= currentDate && christmasVacationEnd >= currentDate){
+      return false;
     }
-    if(year = 2024 && month === 1 && day <= 7){
-        return false;
-    }
+  
     //Semesterferien 24
-    if(year = 2024 && (month > 2 || (month === 2 && day > 9))){
-        return false;
+    if(currentDate > semesterEnd){
+     return false;
     }
+    
     return true;
-
 }
 
 module.exports.sendMenu = sendMenu;
